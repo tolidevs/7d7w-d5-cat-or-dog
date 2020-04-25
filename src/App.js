@@ -13,6 +13,7 @@ function App() {
   const [score, setScore] = useState(null)
   const [choice, setChoice] = useState(null)
   const [result, setResult] = useState({ result: null, url: null })
+  const [updated, setUpdated] = useState(false)
 
   const getPicture = () => {
     let num = Math.round(Math.random())
@@ -35,11 +36,13 @@ function App() {
   const revealPic = () => {
     const grass = document.querySelector(".grass")
     setTimeout(() => grass.classList.add("reveal"), 500)
+    setTimeout(() => setUpdated(true), 1500)
     setTimeout(() => grass.classList.remove("reveal"), 4000)
     setTimeout(() => {
       setResult({ result: null, url: null })
       setChoice(null)
       setScore(null)
+      setUpdated(false)
     }, 8000)
   }
 
@@ -75,14 +78,14 @@ function App() {
             }}></img>
         </div>
       <div className="results-div">
-        {score && choice && (
+        { updated && (
           score === 'win' ? (
           <>
-            <h2>Yes! it's a {choice}! You win! Have a treat!</h2>
+            <h2>Yes! It's a {choice}! You win! Have a treat!</h2>
             <img src={treat} alt="treat icon"></img>
            </>
         ) : (
-          <h2>Sorry, it's a {result.result}, not a {choice} no treat for you!</h2>
+          <h2>Wrong! It's a {result.result}, no treat for you!</h2>
             ) 
         )}
       </div>
