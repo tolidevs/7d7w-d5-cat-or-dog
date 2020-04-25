@@ -1,27 +1,18 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import catIcon from './pictures/cat.png'
 import dogIcon from './pictures/dog.png'
 import treat from './pictures/snack.png'
+import meadow from './pictures/meadow.png'
 import Cat from './Cat'
 import Dog from './Dog'
+import Picture from './Picture'
 
 
 function App() {
   const [score, setScore] = useState(null)
   const [choice, setChoice] = useState(null)
   const [result, setResult] = useState({ result: null, url: null })
-
-  // const getCat = () => {
-  //   fetch('https://aws.random.cat/meow')
-  //     .then(resp => resp.json())
-  // }
-
-  // const getDog = () => {
-  //   fetch('https://random.dog/woof.json')
-  //     .then(resp => resp.json())
-  // }
 
   const getPicture = () => {
     let num = Math.round(Math.random())
@@ -30,53 +21,76 @@ function App() {
       Dog.getDog()
         .then(dog => {
           setResult({ result: "dog", url: dog.url })
-          choice === "dog" ? setScore("win") : setScore("lose")
         })
+        .then(() => revealPic())
     } else {
       Cat.getCat()
         .then(cat => {
           setResult({ result: "cat", url: cat.file })
-          choice === "cat" ? setScore("win") : setScore("lose")
         })
+        .then(() => revealPic())
     }
   }
 
-  let picture = result.url
+  const revealPic = () => {
+    const grass = document.querySelector(".grass")
+    setTimeout(() => grass.classList.add("reveal"), 500)
+    setTimeout(() => grass.classList.remove("reveal"), 4000)
+    setTimeout(() => {
+      setResult({ result: null, url: null })
+      setChoice(null)
+      setScore(null)
+    }, 8000)
+  }
+
+  useEffect(() => {
+    ( result.result === choice ) ? setScore("win") : setScore("lose")
+  }, [result]);
 
   return (
     <div className="App">
-      <h1>Cat or Dog?</h1>
-      <h2>Guess what's hiding in the grass, is it a cat or a dog?</h2>
-      <h2>Win a treat for every one you guess right</h2>
-      <div className="buttons">
-        <img src={catIcon}
-          alt="cat button"
-          onClick={() => {
-            setScore(null)
-            setChoice("cat")
-            getPicture()
-        }}></img>
-        <img src={dogIcon}
-          alt="dog button"
-          onClick={() => {
-            setScore(null)
-            setChoice("dog")
-            getPicture()
-          }}></img>
+      <div className="headers">
+        <h1>Puppy or Pussy?</h1>
+        <h2>Guess what's hiding in the bush, is it a kitty or a pooch?</h2>
       </div>
-      <div className="picture-container">
-        {result.url ? <image className="pic" src={picture}></image> : "???"}
-      </div>
+        <div className="buttons">
+          <img
+            className="button"
+            src={catIcon}
+            alt="cat button"
+            onClick={() => {
+              setScore(null)
+              setChoice("cat")
+              getPicture()
+            }}></img>
+              or   
+          <img
+            className="button"
+            src={dogIcon}
+            alt="dog button"
+            onClick={() => {
+              setScore(null)
+              setChoice("dog")
+              getPicture()
+            }}></img>
+        </div>
       <div className="results-div">
-        {score === "win" ? (
+        {score && choice && (
+          score === 'win' ? (
           <>
             <h2>Yes! it's a {choice}! You win! Have a treat!</h2>
             <img src={treat} alt="treat icon"></img>
            </>
         ) : (
-          <h2>Sorry, it's a {result.result}, not a {choice} you lose!</h2>
-        ) }
+          <h2>Sorry, it's a {result.result}, not a {choice} no treat for you!</h2>
+            ) 
+        )}
       </div>
+      <div className="picture-container">
+        {result.url ? <Picture classes={"pic animal"} url={result.url} altText={"animal"} /> : <div id="empty-div" ></div>}
+        <Picture classes={"pic grass"} url={meadow} altText={"grass"} />
+      </div>
+      
     </div>
   );
 }

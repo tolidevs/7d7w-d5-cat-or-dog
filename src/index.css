@@ -1,18 +1,106 @@
-body {
+
+body, html {
+  height: 100%;
+  width: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #ff4d4d;
+  font-family: 'Montserrat', sans-serif; 
+  /* background: rgb(130,249,101); */
+  /* background: linear-gradient(0deg, rgba(130,249,101,1) 0%, rgba(216,255,229,1) 39%); */
+  background-image: url('./pictures/meadow.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+}
+
+.headers {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(256,256,256,0.9);
+  border-radius: 25%;
+}
+
+.results-div{
+  height: 10vh;
+}
+
+.picture-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
 }
 
 .pic{
-  height: 400px;
-  
+  height: 20vh;
+  width: auto;
+  margin: auto;
 }
+
+.animal{
+  border-style: solid;
+  border-weight: 15px;
+  border-radius: 25px;
+  border-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 30vw;
+  right: 30vw;
+}
+
+.grass {
+  height: 60vh;
+  position: absolute;
+  top: 0px;
+  left: 10vw;
+  right: 10vw;
+  -webkit-transition-property: top;
+  -webkit-transition-duration: 2s;
+  transition-property: top;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+}
+
+.reveal {
+  position: absolute;
+  top: 50vh;
+   -webkit-transition-property: top;
+  -webkit-transition-duration: 2s;
+  transition-property: top;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+}
+
+/* #empty-div {
+  height: 400px;
+} */
