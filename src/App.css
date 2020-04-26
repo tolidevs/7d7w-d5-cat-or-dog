@@ -1,1 +1,138 @@
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
 
+* {
+    text-align: center;
+}
+
+body {
+  height: 100%;
+  width: auto;
+}
+
+.App {
+  text-align: center;
+    margin:auto;
+}
+
+.headers {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(256,256,256,0.9);
+  border-radius: 25%;
+}
+
+.results-div{
+  height: 10vh;
+}
+
+.picture-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
+}
+
+.pic{
+  height: 20vh;
+  width: auto;
+  margin: auto;
+}
+
+.animal{
+  border-style: solid;
+  border-weight: 15px;
+  border-radius: 25px;
+  border-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 30vw;
+  right: 30vw;
+}
+
+.grass {
+  height: 60vh;
+  position: absolute;
+  top: 0px;
+  left: 10vw;
+  right: 10vw;
+  -webkit-transition-property: top;
+  -webkit-transition-duration: 2s;
+  transition-property: top;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+}
+
+.reveal {
+  position: absolute;
+  top: 50vh;
+   -webkit-transition-property: top;
+  -webkit-transition-duration: 2s;
+  transition-property: top;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+}
+
+@media only screen and (max-width: 400px)  {
+    body {
+        display: flex;
+        margin: auto;
+        width: auto;
+    }
+
+    .headers {
+        height: auto;
+    }
+
+    .grass {
+        max-width: 100vw;
+        left: 0;
+        right: 0;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin: 0px;
+        margin-top: 10px;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .button {
+        margin: 10px;
+    }
+
+    .results-div{
+        height: 5vh;
+    }
+
+    .animal{
+        left: 0;
+        right: 0;
+    }
+}
