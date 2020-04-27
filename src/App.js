@@ -78,7 +78,7 @@ function App() {
             }}></img>
         </div>
       <div className="results-div">
-        { updated && (
+        { updated ? (
           score === 'win' ? (
           <>
             <h2>Yes! It's a {choice}! You win! Have a treat!</h2>
@@ -87,7 +87,7 @@ function App() {
         ) : (
           <h2>Wrong! It's a {result.result}, no treat for you!</h2>
             ) 
-        )}
+        ) : <div> </div>}
       </div>
       <div className="picture-container">
         {result.url ? <Picture classes={"pic animal"} url={result.url} altText={"animal"} /> : <div id="empty-div" ></div>}
