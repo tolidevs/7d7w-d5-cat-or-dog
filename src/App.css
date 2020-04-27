@@ -45,7 +45,9 @@ h1 {
 }
 
 .results-div{
-  height: 10vh;
+  height: 15vh;
+  color: #fcba03;
+  font-size: 2rem;
 }
 
 .picture-container {
@@ -57,7 +59,7 @@ h1 {
 }
 
 .pic{
-  height: 20vh;
+  height: 30vh;
   width: auto;
   margin: auto;
 }

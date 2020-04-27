@@ -36,14 +36,14 @@ function App() {
   const revealPic = () => {
     const grass = document.querySelector(".grass")
     setTimeout(() => grass.classList.add("reveal"), 500)
-    setTimeout(() => setUpdated(true), 1500)
-    setTimeout(() => grass.classList.remove("reveal"), 4000)
+    setTimeout(() => setUpdated(true), 1000)
+    setTimeout(() => grass.classList.remove("reveal"), 3500)
     setTimeout(() => {
       setResult({ result: null, url: null })
       setChoice(null)
       setScore(null)
       setUpdated(false)
-    }, 6000)
+    }, 5000)
   }
 
   useEffect(() => {
