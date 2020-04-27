@@ -43,7 +43,7 @@ function App() {
       setChoice(null)
       setScore(null)
       setUpdated(false)
-    }, 8000)
+    }, 6000)
   }
 
   useEffect(() => {

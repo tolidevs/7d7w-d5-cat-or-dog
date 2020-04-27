@@ -38,7 +38,7 @@ h1 {
 }
 
 .button {
-  margin: 20px;
+  margin: 0 20px;
   padding: 20px;
   background-color: rgba(256,256,256,0.9);
   border-radius: 25%;
@@ -76,7 +76,7 @@ h1 {
 .grass {
   height: 60vh;
   position: absolute;
-  top: 0px;
+  top: -20px;
   left: 10vw;
   right: 10vw;
   -webkit-transition-property: top;
