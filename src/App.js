@@ -53,8 +53,8 @@ function App() {
   return (
     <div className="App">
       <div className="headers">
-        <h1>Puppy or Pussy?</h1>
-        <h2>Guess what's hiding in the bush, is it a kitty or a pooch?</h2>
+        <h1>Puppy or Kitty?</h1>
+        <h2>Guess what's hiding in the bush, is it a puss or a pooch?</h2>
       </div>
         <div className="buttons">
           <img
